@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Script;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ScriptController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(5);
+        $scripts = Script::latest()->paginate(5);
 
-        return view('products.index',compact('products'))
+        return view('scripts.index',compact('scripts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('scripts.create');
+
     }
 
     /**
@@ -43,65 +44,67 @@ class ProductController extends Controller
             'detail' => 'required',
         ]);
 
-        Product::create($request->all());
+        Script::create($request->all());
 
-        return redirect()->route('products.index')
-            ->with('success','Product created successfully.');
+        return redirect()->route('scripts.index')
+            ->with('success','Script created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\Script  $script
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Script $script)
     {
-        return view('products.show',compact('product'));
+        return view('scripts.show',compact('script'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\Script  $script
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Script $script)
     {
-        return view('products.edit',compact('product'));
+        return view('scripts.edit',compact('script'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Models\Script  $script
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Script $script)
     {
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
         ]);
 
-        $product->update($request->all());
+        $script->update($request->all());
 
-        return redirect()->route('products.index')
+        return redirect()->route('scripts.index')
             ->with('success','Product updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\Script  $script
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Script $script)
     {
-        $product->delete();
+        $script->delete();
 
-        return redirect()->route('products.index')
-            ->with('success','Product deleted successfully');
+        return redirect()->route('scripts.index')
+            ->with('success','Script deleted successfully');
     }
+
+
 }
