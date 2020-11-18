@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Controllers\ProductController;
 
-Route::resource('products', ProductController::class);
 Route::get('/index', [App\Http\Controllers\ScriptController::class, 'index']);
 
 
