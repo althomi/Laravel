@@ -3305,3 +3305,21 @@
     display: block;
 }
 
+.floatRight{
+    position:relative;
+    display: block;
+    right:50px;
+}
+
+.navLeft{
+    position: relative;
+    display: block;
+    left:280px;
+}
+.sessionLeft{
+    position: relative;
+    display: block;
+    left:100px;
+    top: 20px;
+}
+

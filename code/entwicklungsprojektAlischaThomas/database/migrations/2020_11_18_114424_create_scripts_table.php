@@ -15,9 +15,14 @@ class CreateScriptsTable extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('detail');
-            $table->timestamps();
+            $table->integer('Szenennr')->default(1);
+            $table->integer('Einstellungsnr')->default(1);
+            $table->text('Bildbeschreibung')->nullable();
+            $table->string('Kameraeinstellung')->default('keine');
+            $table->text('Ort')->nullable();
+            $table->text('Ton')->nullable();
+            $table->text('Effekt')->nullable();
+            $table ->timestamps();
         });
     }
 
