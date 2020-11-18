@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Script;
 use Illuminate\Http\Request;
-
+use App\Exports\TestScripts;
+//use Excel;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Collection;
+//use Maatwebsite\Excel\Concerns\FromCollection,
 class ScriptController extends Controller
 {
     /**
@@ -40,8 +44,7 @@ class ScriptController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'szenennr' => 'required',
         ]);
 
         Script::create($request->all());
@@ -59,6 +62,11 @@ class ScriptController extends Controller
     public function show(Script $script)
     {
         return view('scripts.show',compact('script'));
+    }
+
+    public function objectAdd()
+    {
+        return view('scripts.objectAdd');
     }
 
     /**
@@ -82,8 +90,7 @@ class ScriptController extends Controller
     public function update(Request $request, Script $script)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'szenennr' => 'required',
         ]);
 
         $script->update($request->all());
@@ -106,5 +113,13 @@ class ScriptController extends Controller
             ->with('success','Script deleted successfully');
     }
 
+    public function exportData(){
+        return Excel::download(new TestScripts(), 'scripts.xlsx');    //return Script::all();returned alle Daten aus der DB
+    }
 
 }
+/*class DataExport implements FromCollection{
+    public function collection(){
+        return Script::all();    //returned alle Daten aus der DB
+    }
+}*/
