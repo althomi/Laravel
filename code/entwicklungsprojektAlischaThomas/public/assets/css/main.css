@@ -3348,12 +3348,26 @@
 
 .positioncenter{
     position: relative;
-    left:150px;
+    right:-100px;
     margin-top:50px;
     margin-bottom:30px;
 }
 .nkfs{
     color: #ed969e;
+}
+.homeStarten{
+    position: relative;
+    display: block;
+    left:10px;
+    top:100px;
+    color: #4dc0b5;
+}
+
+.btnExport{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:10px;
+    left:85px;
 }
 
 

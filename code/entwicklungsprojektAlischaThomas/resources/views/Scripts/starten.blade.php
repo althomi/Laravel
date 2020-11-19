@@ -3,9 +3,9 @@
 @section ('content')
 <body class="landing">
 <header id="header" class="alt">
-    <nav id="nav" class="navLeft">
+    <nav id="nav" class="homeStarten">
         <ul>
-            <li><a href="/starten">Home</a></li>
+            <li><a style="color: #dc3545" href="/starten">Home</a></li>
         </ul>
     </nav>
 </header>
@@ -23,9 +23,9 @@
     <h3>Schritt 2</h3>
     <p>Lege Einträge für dein Drehbuch an.</p>
     <h3>Schritt 3</h3>
-    <p>Exportiere den Drehbuch als Excel Datei.</p>
+    <p>Exportiere dein Drehbuch als Excel Datei.</p>
     <ul class="actions">
-        <li><a href="/loginProcess" class="button special big">Login zum Starten</a></li>
+        <li><a href="/home" class="button special big">Login zum Starten</a></li>
     </ul>
 </section>
 

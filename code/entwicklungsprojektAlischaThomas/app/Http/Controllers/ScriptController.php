@@ -41,6 +41,12 @@ class ScriptController extends Controller
     {
         $request->validate([
             'szenennr' => 'required',
+            'einstellungsnr'=>'required',
+            'bildbeschreibung'=>'nullable|string',
+            'kamera'=>'nullable|string',
+            'ort'=>'nullable|string',
+            'ton'=>'nullable|string',
+            'effekt'=>'nullable|string'
         ]);
 
         Script::create($request->all());
@@ -87,6 +93,12 @@ class ScriptController extends Controller
     {
         $request->validate([
             'szenennr' => 'required',
+            'einstellungsnr'=>'required',
+            'bildbeschreibung'=>'nullable|string',
+            'kamera'=>'nullable|string',
+            'ort'=>'nullable|string',
+             'ton'=>'nullable|string',
+            'effekt'=>'nullable|string'
         ]);
 
         $script->update($request->all());
@@ -112,6 +124,13 @@ class ScriptController extends Controller
     public function exportData()
     {
         return Excel::download(new Export(), 'scripts.xlsx');    //return Script::all();returned alle Daten aus der DB
+    }
+
+    public function deleteScript($id){
+        $script = Script::find($id);
+        $script->delete();
+        return response()->json(['success'=>'Dein Eintrag wurde erfolgreich aus dem Drehbuch entfernt.']);
+
     }
 
 }
