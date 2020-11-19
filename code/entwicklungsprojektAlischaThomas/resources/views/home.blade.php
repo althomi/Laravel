@@ -2,11 +2,10 @@
 @extends('auth.layoutAuth')
 
 @section('content')
-<nav id="nav">
-    <ul>
-        <li><a href="/starten">Home</a></li>
-    </ul>
-</nav>
+<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}">
+
+<div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,13 +18,18 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-
-
                 </div>
-                <a class="nav-link" href="#"</a>
-
+                <nav>
+                    <ul>
+                        <li class="button special big"  ><a style="color: white"  href="/scripts">Drehbuch erstellen</a></li>
+                    </ul>
+                        <ul>
+                            <li><a href="/starten">Home</a></li>
+                        </ul>
+                </nav>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

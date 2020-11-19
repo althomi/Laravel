@@ -4,17 +4,17 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Script</h2>
+            <h2>Eintrag bearbeiten</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('scripts.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('scripts.index') }}"> Zurück zum Drehbuch</a>
         </div>
     </div>
 </div>
 
 @if ($errors->any())
 <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <strong>Hupsi :)</strong> Da stimmt etwas nicht mit deiner Eingabe.<br><br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -26,24 +26,53 @@
 <form action="{{ route('scripts.update',$script->id) }}" method="POST">
     @csrf
     @method('PUT')
-
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" value="{{ $script->name }}" class="form-control" placeholder="Name">
+                <strong>Szenensnummer</strong>
+                <input type="text" name="szenennr" value="{{ $script->Szenennr }}" class="form-control" placeholder="Szenensnummer">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Detail:</strong>
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $script->detail }}</textarea>
+                <strong>Einstellungsnummer</strong>
+                <input type="text" name="einstellungsnr" value="{{ $script->Einstellungsnr }}" class="form-control" placeholder="Einstellungsnr">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Bildbeschreibung</strong>
+            <input type="text" name="bildbeschreibung" value="{{ $script->Bildbeschreibung }}" class="form-control" placeholder="Bildbeschreibung">
         </div>
     </div>
-
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Kameraeinstellung</strong>
+            <input type="text" name="kameraeinstellung" value="{{ $script->Kameraeinstellung }}" class="form-control" placeholder="Kameraeinstellung">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Ort</strong>
+            <input type="text" name="ort" value="{{ $script->Ort }}" class="form-control" placeholder="Ort">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Ton</strong>
+            <input type="text" name="ton" value="{{ $script->Ton }}" class="form-control" placeholder="Ton">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Effekt</strong>
+            <input type="text" name="effekt" value="{{ $script->Effekt }}" class="form-control" placeholder="Effekt">
+        </div>
+    </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Eintrag ändern</button>
+        </div>
+    </div>
 </form>
+</div>
 @endsection

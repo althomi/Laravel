@@ -4,23 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Script;
 use Illuminate\Http\Request;
-use App\Exports\TestScripts;
-//use Excel;
+use App\Exports\Export;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Collection;
-//use Maatwebsite\Excel\Concerns\FromCollection,
+use Validator;
+use Response;
+use Illuminate\Support\Facades\Input;
 class ScriptController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $scripts = Script::latest()->paginate(5);
 
-        return view('scripts.index',compact('scripts'))
+        return view('scripts.index', compact('scripts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -38,7 +34,7 @@ class ScriptController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,41 +46,41 @@ class ScriptController extends Controller
         Script::create($request->all());
 
         return redirect()->route('scripts.index')
-            ->with('success','Script created successfully.');
+            ->with('success', 'Dein Eintrag wurde erfolgreich angelegt');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Script  $script
+     * @param \App\Models\Script $script
      * @return \Illuminate\Http\Response
      */
     public function show(Script $script)
     {
-        return view('scripts.show',compact('script'));
+        return view('scripts.show', compact('script'));
     }
 
-    public function objectAdd()
-    {
-        return view('scripts.objectAdd');
-    }
+    /* public function objectAdd()
+     {
+         return view('scripts.objectAdd');
+     }*/
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Script  $script
+     * @param \App\Models\Script $script
      * @return \Illuminate\Http\Response
      */
     public function edit(Script $script)
     {
-        return view('scripts.edit',compact('script'));
+        return view('scripts.edit', compact('script'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Script  $script
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Script $script
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Script $script)
@@ -96,13 +92,13 @@ class ScriptController extends Controller
         $script->update($request->all());
 
         return redirect()->route('scripts.index')
-            ->with('success','Product updated successfully');
+            ->with('success', 'Dein Eintrag wurden erfolgreich aktualisiert.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Script  $script
+     * @param \App\Models\Script $script
      * @return \Illuminate\Http\Response
      */
     public function destroy(Script $script)
@@ -110,16 +106,12 @@ class ScriptController extends Controller
         $script->delete();
 
         return redirect()->route('scripts.index')
-            ->with('success','Script deleted successfully');
+            ->with('success', 'Dein Eintrag wurder erfolgreich aus dem Drehbuch entfernt');
     }
 
-    public function exportData(){
-        return Excel::download(new TestScripts(), 'scripts.xlsx');    //return Script::all();returned alle Daten aus der DB
+    public function exportData()
+    {
+        return Excel::download(new Export(), 'scripts.xlsx');    //return Script::all();returned alle Daten aus der DB
     }
 
 }
-/*class DataExport implements FromCollection{
-    public function collection(){
-        return Script::all();    //returned alle Daten aus der DB
-    }
-}*/

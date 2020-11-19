@@ -2,12 +2,10 @@
 
 namespace App\Exports;
 
-//use App\TestScripts;
 use App\Models\Script;
 use Maatwebsite\Excel\Concerns\FromCollection;
-//use APP\Http\Controller\ScriptController,
 
-class TestScripts implements FromCollection
+class Export implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection

@@ -7,9 +7,6 @@
         <ul>
             <li><a href="/starten">Home</a></li>
         </ul>
-        <ul>
-            <li><a href="/scripts">Drehbuch erstellen</a></li>
-        </ul>
     </nav>
 </header>
 <section id="banner">
@@ -24,9 +21,9 @@
     <h3>Schritt 1</h3>
     <p>Logge dich in dein Nutzerkonto ein.</p>
     <h3>Schritt 2</h3>
-    <p>Lege Einträge für dein Drehbuch ein.</p>
+    <p>Lege Einträge für dein Drehbuch an.</p>
     <h3>Schritt 3</h3>
-    <p>Exportiere den Drehbuch als Excel Datei</p>
+    <p>Exportiere den Drehbuch als Excel Datei.</p>
     <ul class="actions">
         <li><a href="/loginProcess" class="button special big">Login zum Starten</a></li>
     </ul>
