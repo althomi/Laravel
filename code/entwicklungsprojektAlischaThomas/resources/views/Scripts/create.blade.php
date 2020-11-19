@@ -42,14 +42,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Bildbeschreibung</strong>
-                    <textarea name="bildbeschreibung" class="form-control" style="height:150px" placeholder="Einstellungsnr"></textarea>
-
+                    <textarea name="bildbeschreibung" class="form-control" style="height:150px" placeholder="Bildbeschreibung"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Kameraeinstellung</strong>
-                    <textarea name="kameraeinstellung" class="form-control" style="height:150px" placeholder="Kameraeinstellung"></textarea>
+                    <strong>Kamerasetting</strong>
+                    <textarea name="kamera" class="form-control" style="height:150px" placeholder="Kamerasetting"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

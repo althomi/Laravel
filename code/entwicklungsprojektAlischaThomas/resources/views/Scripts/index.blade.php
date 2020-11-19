@@ -9,17 +9,21 @@
     <div>
         <nav id="nav">
             <ul>
-                <li><a href="/starten">Home</a></li>
+                <li><a style="color: #dc3545" href="/starten">Home</a></li>
             </ul>
         </nav>
     </div>
         <div class="pull-right positioncenter">
-            <button type="button" class="button special big" data-toggle="modal" data-target="#scriptmodal">
+            <button type="button" class="button special big positioncenter" data-toggle="modal" data-target="#scriptmodal">
                 Script Eintrag erstellen
             </button>
-            <a class="btn btn-primary" href="/export"> Exportieren als Excel</a>
+            <div class="btnExport">
+                <a class="btn btn-primary btnExport" href="/export"> Drehbuch Exportieren als Excel</a>
+            </div>
         </div>
+
     </div>
+
 </div>
 
 @if ($message = Session::get('success'))
@@ -77,8 +81,8 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Kameraeinstellung</strong>
-                                        <textarea name="kameraeinstellung" class="form-control" style="height:150px" placeholder="Kameraeinstellung"></textarea>
+                                        <strong>Kamera</strong>
+                                        <textarea name="kamera" class="form-control" style="height:150px" placeholder="Kamera"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -121,18 +125,18 @@
         <td>Szenennr</td>
         <td>Einstellungsnr</td>
         <td>Bildbeschreibung</td>
-        <td>Kameraeinstellung</td>
+        <td>Kamera</td>
         <td>Ort</td>
         <td>Ton</td>
         <td>Effekt</td>
         <th width="350px">Action</th>
     </tr>
     @foreach ($scripts as $script)
-    <tr>
+    <tr id="{{$script->id}}">
         <td>{{ $script->Szenennr }}</td>
         <td>{{ $script->Einstellungsnr }}</td>
         <td>{{ $script->Bildbeschreibung }}</td>
-        <td>{{ $script->Kameraeinstellung }}</td>
+        <td>{{ $script->Kamera }}</td>
         <td>{{ $script->Ort }}</td>
         <td>{{ $script->Ton }}</td>
         <td>{{ $script->Effekt }}</td>
@@ -143,14 +147,14 @@
                 <a class="btn btn-primary"  href="{{ route('scripts.edit',$script->id) }}">Bearbeiten</a>
 
                 @csrf
-                @method('DELETE')
+                <a class="btn btn-info" href="javascript:void(0)" onclick="deleteScript({{$script->id}})">Löschen</a>
 
-                <button type="submit"  class="btn btn-danger delete-link">Löschen</button>
             </form>
         </td>
     </tr>
     @endforeach
 </table>
+</div>
 </div>
 {!! $scripts ?? ''->links() !!}
 
@@ -175,5 +179,24 @@
         });
         }
     )
+</script>
+
+<script>
+    function deleteScript(id){
+        if(confirm("Willst du diesen Eintrag wirklich aus dem Drehbuch löschen?"))
+        {
+            $.ajax({
+                url:/scripts/ + id,
+                type:'DELETE',
+                data:{
+                    _token: $("input[name=_token]").val()
+                },
+                success:function(response){
+                    $(id).remove();
+                }
+                }
+            );
+        }
+    }
 </script>
 @endsection

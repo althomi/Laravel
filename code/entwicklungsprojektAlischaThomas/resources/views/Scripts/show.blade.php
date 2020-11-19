@@ -36,8 +36,8 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Kameraeinstellung</strong>
-            {{ $script->Kameraeinstellung }}
+            <strong>Kamerasetting</strong>
+            {{ $script->Kamera }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

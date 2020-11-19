@@ -32,6 +32,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/export', [App\Http\Controllers\ScriptController::class, 'exportData']);
-
+Route::delete('/scripts/{id}', [ScriptController::class, 'deleteScript']);
 
 

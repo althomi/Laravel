@@ -47,8 +47,8 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Kameraeinstellung</strong>
-            <input type="text" name="kameraeinstellung" value="{{ $script->Kameraeinstellung }}" class="form-control" placeholder="Kameraeinstellung">
+            <strong>Kamerasetting</strong>
+            <input type="text" name="kamera" value="{{ $script->Kamera }}" class="form-control" placeholder="Kamerasetting">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
