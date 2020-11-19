@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../entwicklungsprojektAlischaThomas/public/assets/css/main.css " />
 
-    <!-- CSRF Token -->
+    <!-- CSRF Token: für Ajax Form Validierung bei Input Felder notwendig-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>

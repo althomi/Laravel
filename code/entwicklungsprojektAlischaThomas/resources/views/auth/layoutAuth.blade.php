@@ -3,7 +3,6 @@
 <head>
     <title>Drehbuch Ersteller</title>
 
-    <link rel="stylesheet" type="text/css" href="../entwicklungsprojektAlischaThomas/public/assets/css/main.css"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}">

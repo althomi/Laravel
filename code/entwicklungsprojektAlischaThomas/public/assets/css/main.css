@@ -3314,7 +3314,9 @@
 .navLeft{
     position: relative;
     display: block;
-    left:280px;
+    left:10px;
+    top:100px;
+    margin-top:0px;
 }
 .sessionLeft{
     position: relative;
@@ -3325,4 +3327,33 @@
 .blue{
     color: #4dc0b5;
 }
+
+.whiteCol{
+    color: white;
+    position: relative;
+    display: block;
+    right:200px;
+    top: 20px;
+}
+
+.buttonHome{
+    background-color: #4dc0b5;
+}
+
+.navCenter{
+    display: block;
+    position: relative;
+    left: 400px;
+}
+
+.positioncenter{
+    position: relative;
+    left:150px;
+    margin-top:50px;
+    margin-bottom:30px;
+}
+.nkfs{
+    color: #ed969e;
+}
+
 
