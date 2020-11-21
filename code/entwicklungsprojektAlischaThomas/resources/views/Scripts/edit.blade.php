@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -9,7 +8,6 @@
         </div>
     </div>
 </div>
-
 <form action="{{ route('scripts.update',$script->id) }}" method="POST" class="eintragBearbeiten" >
     @csrf
     @method('PUT')
@@ -17,13 +15,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Szenensnummer</strong>
-                <input type="text" style="width: 50px" name="szenennr" value="{{ $script->Szenennr }}" class="form-control" placeholder="Szenensnummer">
+                <input type="text" style="width: 200px" name="szenennr" value="{{ $script->Szenennr }}" class="form-control" placeholder="Szenensnummer">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Einstellungsnummer</strong>
-                <input type="text" style="width: 50px" name="einstellungsnr" value="{{ $script->Einstellungsnr }}" class="form-control" placeholder="Einstellungsnr">
+                <input type="text" style="width: 200px" name="einstellungsnr" value="{{ $script->Einstellungsnr }}" class="form-control" placeholder="Einstellungsnr">
             </div>
         </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

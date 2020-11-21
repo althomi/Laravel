@@ -8,8 +8,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="row eintragZeigen">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -53,8 +51,6 @@
             {{ $script->Effekt }}
         </div>
     </div>
-
     <a class="btn btn-primary btnDeinEintrag"  href="{{ route('scripts.edit',$script->id) }}">Bearbeiten</a>
-
 </div>
 @endsection

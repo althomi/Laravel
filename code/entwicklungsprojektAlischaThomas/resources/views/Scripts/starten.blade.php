@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section ('content')
 <body class="landing">
 <section id="banner">
@@ -7,7 +6,7 @@
     <h3>Herzlich Willkommen beim Drehbuch Ersteller.</h3>
         <section>
             <ul class="actions">
-                <li><a href="/home" class="button special big">Login zum Starten</a></li>
+                <li><a href="/home" class="button special big">Registrieren/Login zum Starten</a></li>
             </ul>
         </section>
     <h2>So funktionerts:</h2>
@@ -18,11 +17,8 @@
     <h3>Schritt 3</h3>
     <p>Exportiere dein Drehbuch als Excel Datei.</p>
     <ul class="actions">
-        <li><a href="/home" class="button special big">Login zum Starten</a></li>
+        <li><a href="/home" class="button special big">Registrieren/Login</a></li>
     </ul>
 </section>
-
-
-
 </body>
 @endsection
