@@ -1,16 +1,16 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Drehbuch Ersteller</h2>
+        <div class="drehbuchErstellen" >
+            <h2>Drehbuch erstellen</h2>
         </div>
     </div>
-        <div class="pull-right positioncenter">
-            <button type="button" class="button special big positioncenter" data-toggle="modal" data-target="#scriptmodal">
+        <div class="pull-right eintragErstellen">
+            <button type="button" class="button special big" data-toggle="modal" data-target="#scriptmodal">
                 Script Eintrag erstellen
             </button>
-            <div class="btnExport">
+            <div class="btnExportTop">
                 <a class="btn btn-primary btnExport" href="/export"> Drehbuch Exportieren als Excel</a>
             </div>
         </div>
@@ -140,8 +140,15 @@
     @endif
     @endforeach
 </table>
+    {{$scripts->links() }}
+    <div>
+        <div class="btnExportBottom">
+            <a class="btn btn-primary btnExportBottom" href="/export"> Drehbuch Exportieren als Excel</a>
+        </div>
+    </div>
 </div>
 </div>
+
 
 <script type="text/javascript">
     $(document).ready(function (){

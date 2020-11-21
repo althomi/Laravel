@@ -26,14 +26,10 @@
     <div id="app">
        @include('includes.nav')
         @include('includes.messages')
-        @include('includes.footer')
-
-
-
-
         <main class="py-4">
             @yield('content')
         </main>
+        @include('includes.footer')
     </div>
 </body>
 </html>
