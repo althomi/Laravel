@@ -9,7 +9,7 @@ class Script extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'szenennr', 'einstellungsnr', 'bildbeschreibung', 'kameraeinstellung', 'ort', 'ton', 'effekt'
+        'szenennr', 'einstellungsnr', 'bildbeschreibung', 'kameraeinstellung', 'ort', 'ton', 'effekt', 'user_id'
     ];
 }
 

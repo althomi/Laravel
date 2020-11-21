@@ -1,4 +1,4 @@
-@extends('scripts.layout')
+@extends('layouts.app')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -11,16 +11,6 @@
     </div>
 </div>
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Hupsi :)</strong> Da stimmt etwas nicht mit deiner Eingabe.<br><br>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 
 <form action="{{ route('scripts.store') }}" method="POST">
     @csrf
@@ -30,43 +20,43 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Szenennr</strong>
-                    <input type="text" name="szenennr" class="form-control" placeholder="Szenennr:z.B. 1">
+                    <input type="text" name="Szenennr" class="form-control" placeholder="Szenennr:z.B. 1">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Einstellungsnr</strong>
-                    <input type="text" name="einstellungsnr" class="form-control" placeholder="Einstellungsnr z.B. 1">
+                    <input type="text" name="Einstellungsnr" class="form-control" placeholder="Einstellungsnr z.B. 1">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Bildbeschreibung</strong>
-                    <textarea name="bildbeschreibung" class="form-control" style="height:150px" placeholder="Bildbeschreibung"></textarea>
+                    <textarea name="Bildbeschreibung" class="form-control" style="height:150px" placeholder="Bildbeschreibung"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Kamerasetting</strong>
-                    <textarea name="kamera" class="form-control" style="height:150px" placeholder="Kamerasetting"></textarea>
+                    <textarea name="Kamera" class="form-control" style="height:150px" placeholder="Kamerasetting"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Ort</strong>
-                    <textarea name="ort" class="form-control" style="height:150px" placeholder="Ort"></textarea>
+                    <textarea name="Ort" class="form-control" style="height:150px" placeholder="Ort"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Ton</strong>
-                    <textarea name="ton" class="form-control" style="height:150px" placeholder="Ton"></textarea>
+                    <textarea name="Ton" class="form-control" style="height:150px" placeholder="Ton"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Effekt</strong>
-                    <textarea name="effekt" class="form-control" style="height:150px" placeholder="Effekt"></textarea>
+                    <textarea name="Effekt" class="form-control" style="height:150px" placeholder="Effekt"></textarea>
                 </div>
             </div>
         </div>

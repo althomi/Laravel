@@ -1,17 +1,10 @@
-@extends('scripts.layout')
+@extends('layouts.layout')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Drehbuch Ersteller</h2>
         </div>
-    </div>
-    <div>
-        <nav id="nav">
-            <ul>
-                <li><a style="color: #dc3545" href="/starten">Home</a></li>
-            </ul>
-        </nav>
     </div>
         <div class="pull-right positioncenter">
             <button type="button" class="button special big positioncenter" data-toggle="modal" data-target="#scriptmodal">
@@ -26,21 +19,7 @@
 
 </div>
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-    <p>{{ $message }}</p>
-</div>
-@endif
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Hupsi :)</strong> Da stimmt etwas nicht mit deiner Eingabe.<br><br>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+@include('includes.messages')
 
 
 <!-- Modal -->
@@ -63,44 +42,44 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Szenennr</strong>
-                                        <input type="text" name="szenennr" class="form-control" placeholder="Szenennr:z.B. 1">
+                                        <input type="text" name="Szenennr" class="form-control" placeholder="Szenennr:z.B. 1">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Einstellungsnr</strong>
-                                        <input type="text" name="einstellungsnr" class="form-control" placeholder="Einstellungsnr z.B. 1">
+                                        <input type="text" name="Einstellungsnr" class="form-control" placeholder="Einstellungsnr z.B. 1">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Bildbeschreibung</strong>
-                                        <textarea name="bildbeschreibung" class="form-control" style="height:150px" placeholder="Einstellungsnr"></textarea>
+                                        <textarea name="Bildbeschreibung" class="form-control" style="height:150px" placeholder="Bildbeschreibung"></textarea>
 
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Kamera</strong>
-                                        <textarea name="kamera" class="form-control" style="height:150px" placeholder="Kamera"></textarea>
+                                        <textarea name="Kamera" class="form-control" style="height:150px" placeholder="Kamera"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Ort</strong>
-                                        <textarea name="ort" class="form-control" style="height:150px" placeholder="Ort"></textarea>
+                                        <textarea name="Ort" class="form-control" style="height:150px" placeholder="Ort"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Ton</strong>
-                                        <textarea name="ton" class="form-control" style="height:150px" placeholder="Ton"></textarea>
+                                        <textarea name="Ton" class="form-control" style="height:150px" placeholder="Ton"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Effekt</strong>
-                                        <textarea name="effekt" class="form-control" style="height:150px" placeholder="Effekt"></textarea>
+                                        <textarea name="Effekt" class="form-control" style="height:150px" placeholder="Effekt"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -129,9 +108,12 @@
         <td>Ort</td>
         <td>Ton</td>
         <td>Effekt</td>
+        <td>Erstellungsdatum</td>
+
         <th width="350px">Action</th>
     </tr>
     @foreach ($scripts as $script)
+    @if (Auth::id() == $script->user_id)
     <tr id="{{$script->id}}">
         <td>{{ $script->Szenennr }}</td>
         <td>{{ $script->Einstellungsnr }}</td>
@@ -140,6 +122,9 @@
         <td>{{ $script->Ort }}</td>
         <td>{{ $script->Ton }}</td>
         <td>{{ $script->Effekt }}</td>
+        <td>{{ $script->created_at }}</td>
+
+
         <td>
             <form action="{{ route('scripts.destroy',$script->id) }}" method="POST">
 
@@ -152,31 +137,31 @@
             </form>
         </td>
     </tr>
+    @endif
     @endforeach
 </table>
 </div>
 </div>
-{!! $scripts ?? ''->links() !!}
 
 <script type="text/javascript">
     $(document).ready(function (){
-        $('#addform').on('submit', function (e){
-            e.preventDefault();
-            $.ajax({
-                type:"POST",
-                url: "/ajaxadd",
-                data: $('#addform').serialize(),
-                success: function (response){
-                    console.log(response)
-                    $('#scriptmodal').modal.('hide')
-                    alert("Data saved");
-                },
-                error:function (error){
-                    console.log(error)
-                    alert("Data not saved");
-                }
+            $('#addform').on('submit', function (e){
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url: "/ajaxadd",
+                    data: $('#addform').serialize(),
+                    success: function (response){
+                        console.log(response)
+                        $('#scriptmodal').modal.('hide')
+                        alert("Data saved");
+                    },
+                    error:function (error){
+                        console.log(error)
+                        alert("Data not saved");
+                    }
+                });
             });
-        });
         }
     )
 </script>
@@ -200,3 +185,4 @@
     }
 </script>
 @endsection
+

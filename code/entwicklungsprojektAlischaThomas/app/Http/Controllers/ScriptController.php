@@ -10,11 +10,24 @@ use Illuminate\Support\Collection;
 use Validator;
 use Response;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 class ScriptController extends Controller
 {
+
+
+    public function starten(){
+        return view('scripts.starten');
+
+    }
+
+/*$items = Item::where('author_id', Auth::user()->id)->orderBy('id','DESC')->with('author')->paginate(5);
+return view('items.index',compact('items'))
+->with('i', ($request->input('page', 1) - 1) * 5);*/
+
     public function index()
     {
-        $scripts = Script::latest()->paginate(5);
+        $scripts = Script::latest()->paginate(10);
+
 
         return view('scripts.index', compact('scripts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -39,20 +52,42 @@ class ScriptController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'szenennr' => 'required',
-            'einstellungsnr'=>'required',
-            'bildbeschreibung'=>'nullable|string',
-            'kamera'=>'nullable|string',
-            'ort'=>'nullable|string',
-            'ton'=>'nullable|string',
-            'effekt'=>'nullable|string'
-        ]);
 
-        Script::create($request->all());
+
+
+        $script = new Script;
+        $script->Szenennr = $request->input('Szenennr');
+        $script->Einstellungsnr = $request->input('Einstellungsnr');
+        $script->Bildbeschreibung = $request->input('Bildbeschreibung');
+        $script->Kamera = $request->input('Kamera');
+        $script->Ort = $request->input('Ort');
+        $script->Ton = $request->input('Ton');
+        $script->Effekt = $request->input('Effekt');
+        $script->user_id = auth()->user()->id;
+        $script->save();
+        return redirect('/scripts')->with('success', 'Post Created');
+
+        $request->validate([
+            'Szenennr' => 'required',
+            'Einstellungsnr' => 'required',
+            'Bildbeschreibung' => 'nullable',
+            'Kamera' => 'nullable',
+            'Ort' => 'nullable',
+            'Ton' => 'nullable',
+            'Effekt' => 'nullable',
+            'user_id' => 'nullable'
+
+        ]);
+    }
+
+
+
+        /*Script::create($request->all());
+
+
 
         return redirect()->route('scripts.index')
-            ->with('success', 'Dein Eintrag wurde erfolgreich angelegt');
+            ->with('success', 'Dein Eintrag wurde erfolgreich angelegt');/*
     }
 
     /**
@@ -92,13 +127,16 @@ class ScriptController extends Controller
     public function update(Request $request, Script $script)
     {
         $request->validate([
-            'szenennr' => 'required',
-            'einstellungsnr'=>'required',
-            'bildbeschreibung'=>'nullable|string',
-            'kamera'=>'nullable|string',
-            'ort'=>'nullable|string',
-             'ton'=>'nullable|string',
-            'effekt'=>'nullable|string'
+            'Szenennr' => 'required',
+            'Einstellungsnr'=>'required',
+            'Bildbeschreibung'=>'nullable',
+            'Kamera'=>'nullable',
+            'Ort'=>'nullable',
+             'Ton'=>'nullable',
+            'Effekt'=>'nullable',
+            'user_id'=>'nullable'
+
+
         ]);
 
         $script->update($request->all());
