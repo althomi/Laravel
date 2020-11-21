@@ -1,12 +1,7 @@
 @extends('layouts.app')
-@extends('auth.layoutAuth')
-@section('contentAuth')
+
+@section('content')
 <div class="container">
-    <nav id="nav">
-        <ul>
-            <li><a href="/starten">Home</a></li>
-        </ul>
-    </nav>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

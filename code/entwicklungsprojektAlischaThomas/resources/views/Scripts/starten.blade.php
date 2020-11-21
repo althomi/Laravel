@@ -1,14 +1,7 @@
-@extends('scripts.layout')
+@extends('layouts.app')
 
 @section ('content')
 <body class="landing">
-<header id="header" class="alt">
-    <nav id="nav" class="homeStarten">
-        <ul>
-            <li><a style="color: #dc3545" href="/starten">Home</a></li>
-        </ul>
-    </nav>
-</header>
 <section id="banner">
     <h2>Drehbuch Ersteller</h2>
     <h3>Herzlich Willkommen beim Drehbuch Ersteller.</h3>

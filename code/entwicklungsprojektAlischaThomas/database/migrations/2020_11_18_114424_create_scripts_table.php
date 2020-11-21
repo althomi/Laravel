@@ -17,12 +17,14 @@ class CreateScriptsTable extends Migration
             $table->id('id');
             $table->integer('Szenennr')->default(1);
             $table->integer('Einstellungsnr')->default(1);
-            $table->string('Bildbeschreibung')->default('keine');
-            $table->string('Kamera')->default('keiner');
-            $table->string('Ort')->default('keiner');
-            $table->string('Ton')->default('keiner');
-            $table->string('Effekt')->default('keiner');
+            $table->string('Bildbeschreibung')->nullable();
+            $table->string('Kamera')->nullable();
+            $table->string('Ort')->nullable();
+            $table->string('Ton')->nullable();
+            $table->string('Effekt')->nullable();
             $table ->timestamps();
+            $table ->integer('user_id')->default(5000);
+
         });
     }
 
