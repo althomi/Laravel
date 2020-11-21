@@ -3,74 +3,61 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
+        @include('includes.BackButton')
+        <div class="eintragBearbeiten">
             <h2>Eintrag bearbeiten</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('scripts.index') }}"> Zurück zum Drehbuch</a>
         </div>
     </div>
 </div>
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Hupsi :)</strong> Da stimmt etwas nicht mit deiner Eingabe.<br><br>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-<form action="{{ route('scripts.update',$script->id) }}" method="POST">
+<form action="{{ route('scripts.update',$script->id) }}" method="POST" class="eintragBearbeiten" >
     @csrf
     @method('PUT')
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Szenensnummer</strong>
-                <input type="text" name="szenennr" value="{{ $script->Szenennr }}" class="form-control" placeholder="Szenensnummer">
+                <input type="text" style="width: 50px" name="szenennr" value="{{ $script->Szenennr }}" class="form-control" placeholder="Szenensnummer">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Einstellungsnummer</strong>
-                <input type="text" name="einstellungsnr" value="{{ $script->Einstellungsnr }}" class="form-control" placeholder="Einstellungsnr">
+                <input type="text" style="width: 50px" name="einstellungsnr" value="{{ $script->Einstellungsnr }}" class="form-control" placeholder="Einstellungsnr">
             </div>
         </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Bildbeschreibung</strong>
-            <input type="text" name="bildbeschreibung" value="{{ $script->Bildbeschreibung }}" class="form-control" placeholder="Bildbeschreibung">
+            <textarea type="text" style="width: 400px; height:150px" name="bildbeschreibung" value="{{ $script->Bildbeschreibung }}" class="form-control" placeholder="Bildbeschreibung"></textarea>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Kamerasetting</strong>
-            <input type="text" name="kamera" value="{{ $script->Kamera }}" class="form-control" placeholder="Kamerasetting">
+            <textarea type="text" style="width: 400px; height:150px" name="kamera" value="{{ $script->Kamera }}" class="form-control" placeholder="Kamerasetting"></textarea>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Ort</strong>
-            <input type="text" name="ort" value="{{ $script->Ort }}" class="form-control" placeholder="Ort">
+            <textarea type="text" style="width: 400px; height:150px" name="ort" value="{{ $script->Ort }}" class="form-control" placeholder="Ort"></textarea>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Ton</strong>
-            <input type="text" name="ton" value="{{ $script->Ton }}" class="form-control" placeholder="Ton">
+            <textarea type="text" style="width: 400px; height:150px" name="ton" value="{{ $script->Ton }}" class="form-control" placeholder="Ton"></textarea>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Effekt</strong>
-            <input type="text" name="effekt" value="{{ $script->Effekt }}" class="form-control" placeholder="Effekt">
+            <textarea type="text" style="width: 400px; height:150px" name="effekt" value="{{ $script->Effekt }}" class="form-control" placeholder="Effekt"></textarea>
         </div>
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Eintrag ändern</button>
+            <button type="submit" class="btn btn-primary btnBearbeiten">Eintrag ändern</button>
         </div>
     </div>
 </form>

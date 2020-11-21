@@ -2,11 +2,9 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
+        @include('includes.BackButton')
         <div class="pull-left">
             <h2>Neuen Eintrag hinzufügen</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('scripts.index') }}"> Zurück zum Drehbuch</a>
         </div>
     </div>
 </div>

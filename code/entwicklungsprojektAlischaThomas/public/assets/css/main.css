@@ -3380,4 +3380,33 @@
     top: -10%;
 }
 
+.eintragBearbeiten{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:10px;
+    left:35%;
+    top: 20%;
+}
 
+.btnBearbeiten{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:40px;
+    left:-38%;
+    top: -20%;
+}
+
+.eintragZeigen{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:40px;
+    left:38%;
+    top: -20%;
+}
+.btnDeinEintrag{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:40px;
+    left:3%;
+    top: -20%;
+}
