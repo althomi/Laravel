@@ -1,21 +1,16 @@
-@extends('scripts.layout')
-
-
-
-
+@extends('layouts.app')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
+        @include('includes.backButton')
+        <div class="deinEintrag">
             <h2> Dein Eintrag</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('scripts.index') }}"> Zurück zum Drehbuch</a>
         </div>
     </div>
 </div>
 
-<div class="row">
+
+<div class="row deinEintrag">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Szenennummer</strong>
@@ -58,5 +53,8 @@
             {{ $script->Effekt }}
         </div>
     </div>
+
+    <a class="btn btn-primary"  href="{{ route('scripts.edit',$script->id) }}">Bearbeiten</a>
+
 </div>
 @endsection

@@ -65,7 +65,8 @@ return view('items.index',compact('items'))
         $script->Effekt = $request->input('Effekt');
         $script->user_id = auth()->user()->id;
         $script->save();
-        return redirect('/scripts')->with('success', 'Dein Eintrag wurde erfolgreich deinem Drehbuch hinzugefügt.');
+        return redirect()->route('scripts.index')
+            ->with('success', 'Dein Eintrag wurde erfolgreich angelegt');
 
         $request->validate([
             'Szenennr' => 'required',
