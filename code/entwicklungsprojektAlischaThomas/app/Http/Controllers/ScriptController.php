@@ -26,7 +26,7 @@ return view('items.index',compact('items'))
 
     public function index()
     {
-        $scripts = Script::latest()->paginate(10);
+        $scripts = Script::latest()->paginate(2);
 
 
         return view('scripts.index', compact('scripts'))
@@ -65,7 +65,7 @@ return view('items.index',compact('items'))
         $script->Effekt = $request->input('Effekt');
         $script->user_id = auth()->user()->id;
         $script->save();
-        return redirect('/scripts')->with('success', 'Post Created');
+        return redirect('/scripts')->with('success', 'Dein Eintrag wurde erfolgreich deinem Drehbuch hinzugefügt.');
 
         $request->validate([
             'Szenennr' => 'required',

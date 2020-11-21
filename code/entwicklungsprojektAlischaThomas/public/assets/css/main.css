@@ -3315,7 +3315,6 @@
     position: relative;
     display: block;
     left:10px;
-    top:100px;
     margin-top:0px;
 }
 .sessionLeft{
@@ -3336,9 +3335,6 @@
     top: 20px;
 }
 
-.buttonHome{
-    background-color: #4dc0b5;
-}
 
 .navCenter{
     display: block;
@@ -3346,15 +3342,6 @@
     left: 400px;
 }
 
-.positioncenter{
-    position: relative;
-    right:-100px;
-    margin-top:50px;
-    margin-bottom:30px;
-}
-.nkfs{
-    color: #ed969e;
-}
 .homeStarten{
     position: relative;
     display: block;
@@ -3367,7 +3354,30 @@
     position: relative;
     margin-top:20px;
     margin-bottom:10px;
-    left:85px;
+    left:20%;
+}
+
+.btnExportBottom{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:10px;
+    top: -20px;
+}
+
+.drehbuchErstellen{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:10px;
+    left:38%;
+    top: -10%;
+}
+
+.eintragErstellen{
+    position: relative;
+    margin-top:20px;
+    margin-bottom:10px;
+    left:35%;
+    top: -10%;
 }
 
 
