@@ -5,7 +5,7 @@
 Dieses Repository enthält ein Laravel Projekt. Das Projekt umfasst eine Web-applikation, mit der Drehbücher erstellt werden können.
 
 
-Die Dokumentation inkl. Installationsanelitung ist im dokumetn "Dokumentation" enthalten.
+Die Dokumentation inkl. Installationsanelitung ist im Dokument "Dokumentation" enthalten.
 
 Viel Spaß beim Drehbücher Erstellen :)
 
